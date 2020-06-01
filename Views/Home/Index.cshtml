@@ -1,0 +1,59 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #box {
+            height: 100px;
+            width: 100px;
+            border: solid 1px black;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        @{
+            for(int i = 0; i < ViewBag.height; i++){
+                <div class="row h-100">
+                @{
+                    for(int j = 0; j < ViewBag.width; j++){
+                        if(ViewBag.output[i,j] == 0){
+                            <div class="col bg-secondary text-secondary" id="box">x</div>
+                        }
+                        else if(ViewBag.output[i,j] == 4){
+                            <div class="col bg-dark text-dark" id="box">x</div>
+                        }
+                        else if(ViewBag.output[i,j] == 1){
+                            <div class="col bg-primary text-primaryy" id="box">1</div>
+                        }
+                        else if(ViewBag.output[i,j] == 2){
+                            <div class="col bg-primary text-primaryy" id="box">2</div>
+                        }   
+                    }
+                }
+                </div>
+            }
+        }
+    </div>
+    
+</body>
+</html>
+@* @{
+    int counter = 0;
+    string stringout = "";
+    foreach(int i in ViewBag.output){
+        if(counter%ViewBag.width == 0){
+            <p>@stringout</p>
+            stringout = "";
+        }
+        stringout += i + " ";
+        counter++;
+    }
+    <p>@stringout</p>
+} *@
